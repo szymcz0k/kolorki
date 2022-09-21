@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function getRandomColor() {
+                let letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            function test() {
+                let elements = {}; 
+                for(i=0; i < 10; i++) {
+                    elements[i] = document.createElement("div");
+                    elements[i].style.width = "200px";
+                    elements[i].style.height = "40px";
+                    elements[i].style.margin = "10px";
+                    elements[i].style.borderRadius = "32px 32px";
+                    let a = getRandomColor();
+                    let b = getRandomColor();
+                    elements[i].style.background = 'linear-gradient(to right, '+a+','+b+')';
+                    elements[i].style.color = "white";  
+                    elements[i].innerHTML = a +'<span>' + b + '</span>';
+                    document.getElementById('lc').appendChild(elements[i]);
+                }
+            }
+            window.onload = test;
+        </script>
+    </head>
+    <body>
+    <center><span style="font-weight: bold; color: white; font-size: 45px;">10 CIEKAWYCH GRADIENTÓW</span>
+        <br/>
+        <span style="font-weight: lighter; color: rgb(201, 182, 182); font-size: 25px;">DO DESIGNU</span>
+    </center>
+        <div id="lc"></div>
+    </body>
+</html>
